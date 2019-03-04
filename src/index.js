@@ -1,8 +1,23 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import Shouye from '@/components/total/shouye/index.js'
 
-ReactDOM.render(<App />, document.getElementById('root'));
+
+class App extends Component {
+  render () {
+    return (
+      <div>
+        <Shouye></Shouye>
+      </div>
+    )
+  }
+}
+
+ReactDOM.render(
+  <App />,
+  document.getElementById('root')
+)
+
+
 
 
