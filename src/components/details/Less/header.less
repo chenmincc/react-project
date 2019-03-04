@@ -1,0 +1,60 @@
+@width: 100%;
+@white: #fff;
+
+#headerBox {
+  width: @width;
+  background: @white;
+  font-size: 16px;
+  min-height: 44px;
+
+  .outerBox {
+    text-align: center;
+    height: 2.347rem;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    z-index: 1;
+    border-bottom: 1px solid #eee;
+
+    .goback {
+      position: absolute;
+      left: 0rem;
+      top: 0;
+      width: 2rem;
+      height: 2.347rem;
+
+      .jtLeft {
+        font-size: 28px;
+        line-height:2.347rem;
+        text-align: center;
+      }
+    }
+    .logoMid {
+      display: block;
+      text-align: center;
+      margin: 0px 2.1875rem;
+      overflow: hidden;
+      -o-text-overflow: ellipsis;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: 14px;
+      color: #333;
+      height: 2.347rem;
+      line-height: 2.347rem;
+    }
+    .atMore {
+      position: absolute;
+      right: 0rem;
+      top: 0;
+      width: 2rem;
+      height: 2.347rem;
+
+      .header-rightTb {
+        font-size: 28px;
+        line-height:2.347rem;
+        text-align: center;
+      }
+    }
+  }
+}

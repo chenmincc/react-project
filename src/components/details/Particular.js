@@ -1,0 +1,71 @@
+import React from 'react';
+
+class Particular extends React.Component {
+  render () {
+    return (
+      <div>
+        {/* 图片盒子 */}
+        <section className="ImgBox">
+           {/* 图片盒子 */}
+           <article className="neiBox">
+              <img src="http://p0.jmstatic.com/banner/area/000/000/029.jpg" className="logoJs" />
+              <img src="http://mp5.jmstatic.com/product/003/426/3426004_std/3426004_1000_1000.jpg?v=1490789863&imageView2/2/w/800/q/90" />
+           </article>
+         </section>
+        {/* 商品售价及其他信息 */}
+        <article className="priceBox">
+          <div className="normalShow">
+            <div className="price_info">
+              <span className="cur_price">￥49.9</span>
+              <span className="cost_price">￥59.9</span>
+              <span className="detail_text">
+              价格详情
+              <i className="iconfont icon-biao query_icon"></i>
+              </span>
+              <strong>3341人已购买</strong>
+            </div>
+            <div className="downWrap">
+              <div className="count_down">
+                <span>还剩4天2:36:53</span>
+              </div>
+            </div>
+          </div>
+        </article>
+        {/* 广告 */}
+        <article className="desc_wrap">
+          <div className="normal_desc">
+            <span className="desc_iconv2">聚美自营</span>
+            碧柔含水清爽保湿防晒乳液新版 50g，让你不怕晒！
+          </div>
+        </article>
+        {/* 促销 */}
+        <article className="additional-info">
+          <div className="promotion-wrap">
+            <div className="promotion-content">
+              <div className="promotion-type">促销</div>
+              <div className="promotion-item">
+                <p className="item-list-title">
+                  <span className="item-list-icon">满赠</span>
+                  <span className="item-list-text">[已赠完]部分产品满299赠SACRUM ALGAE 保湿水</span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div></div>
+        </article>
+        {/* 运费 */}
+        <article className="additional-list">
+          <div className="postage-wrap">
+            <div className="postage-type">运费</div>
+            <div className="postage-content">
+              <span className="tip-word">本商品满299元或2件包邮（新疆部分区域除外）</span>
+              <span className="iconfont icon-youjiantou arrow-icon-right"></span>
+            </div>
+          </div>
+        </article>
+      </div>
+    )
+  }
+}
+
+export default Particular;
