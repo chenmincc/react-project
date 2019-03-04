@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import '@/style/reset.less';
+import Cart from '../src/components/total/cart/index.js';
 
-ReactDOM.render(<App />, document.getElementById('root'));
-
-
+ReactDOM.render(<Cart />,document.getElementById('root'));

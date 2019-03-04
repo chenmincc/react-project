@@ -1,0 +1,300 @@
+#root {
+  height: 100%;
+
+  .jq-cart {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .jq-header {
+      height: 2.5625rem;
+      padding: 0 .85rem;
+      font-size: 1rem;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #fff;
+
+      .jq-headerBack {
+        width: 0.46875rem;
+        height: 0.84375rem;
+        font-size: 0.84375rem;
+      }
+
+      .jq-headerHome {
+        width: 1.125rem;
+        height: 1.125rem;
+        font-size: 1.125rem;
+      }
+    }
+
+    .jq-cart-main {
+      display: flex;
+      flex: 1;
+      overflow: auto;
+
+      .jq-cart-no-goods {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        display: none;
+
+        .jq-oops {
+          width: 5.375rem;
+          height: 5.125rem;
+          background: url(../image/no-card-oops.png) no-repeat;
+          background-size: 100% 100%;
+        }
+
+        .jq-empty-cart {
+          font-size: 0.875rem;
+          line-height: 0.9375rem;
+          color: #333;
+          margin-top: 1rem;
+          padding: 0 .75rem;
+          text-align: center;
+        }
+
+        .jq-go-stroll {
+          width: 7.8125rem;
+          height: 2.25rem;
+          border-radius: 1.25rem;
+          color: #fff;
+          background: #fe4070;
+          line-height: 2.25rem;
+          text-align: center;
+          margin-top: 1.4375rem;
+          font-size: .8125rem;
+        }
+      }
+      .jq-cart-goods{
+        width: 100%;
+
+        .jq-count-down {
+          padding: 0 0.5rem;
+          height: 1.875rem;
+          color: #999;
+          background: #fff;
+          display: flex;
+          align-items: center;
+          width: 100%;
+        }
+        .jq-groups{
+          margin-top: .5rem;
+
+          .jq-group{
+            margin-bottom: .5rem;
+            background: #fff;
+
+            .jq-group-header {
+              position: relative;
+              background: #fff;
+              height: 2.5rem;
+              display: flex;
+              align-items: center;
+              padding-left: .5rem;
+              border-bottom: 1px #eee solid;
+
+              .jq-group-title {
+                margin-left: 0.5rem;
+                max-width: 47%;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+              }
+            }
+            .jq-group-content{
+              li{
+                border-bottom: 1px #eee solid;
+                .item {
+                  overflow: hidden;
+                  min-height: 5.25rem;
+                  display: flex;
+                  padding: 0 .75rem 0 .5rem;
+
+                  .jq-check-box-checked{
+                    margin-top: 2.8125rem;
+                  }
+                  
+                  .item-content{
+                    flex:1;
+                    .img-title{
+                      display: flex;
+                      margin-left: .5rem;
+                      padding-bottom: .625rem;
+
+                      .img-wrap{
+                        width: 5.25rem;
+                        height: 5.25rem;
+                        position: relative;
+                        margin-top: .625rem;
+                        img{
+                          width: 5.25rem;
+                          height: 5.25rem;
+                        }
+                      }
+                      .text-wrap{
+                        display: flex;
+                        flex-direction: column;
+                        margin-left: 0.625rem;
+                        margin-top: 0.5rem;
+                        flex: 1;
+                        .title {
+                          display: -webkit-box;
+                          width: 14.5625rem;
+                          max-height: 2.5rem;
+                          text-overflow: ellipsis;
+                          overflow: hidden;
+                          color: #333;
+                          line-height: 1.25rem;
+                          text-align: left;
+                          -webkit-line-clamp: 2;
+                          word-break: break-all;
+                        }
+                        .sub-title-1 {
+                          margin-top: 0.1875rem;
+                          line-height: 0.75rem;
+                          height: 0.75rem;
+                          color: #999;
+                          display: flex;
+                          justify-content: space-between;
+
+                          span:first-child {
+                            display: block;
+                            max-width: 12.1875rem;
+                            font-size: .6875rem;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                          }
+                        }
+                        .price-edit {
+                          margin-top: .3125rem;
+                          display: flex;
+                          justify-content: space-between;
+                          align-items: center;
+                          height: 1.375rem;
+                          .price {
+                            width: 12.5625rem;
+                            display: block;
+                            font-size: .9375rem;
+                            color: #fe4070;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                          }
+                        }
+                      }
+                    }
+                    .discount-detail {
+                      display: flex;
+                      flex-direction: column;
+                      margin-left: .5rem;
+                      position: relative;
+
+                      .discount-item {
+                        margin-bottom: .625rem;
+                        display: flex;
+                        align-items: center;
+                        span{
+                          height: 1rem;
+                          border-radius: 1.25rem;
+                          font-size: .625rem;
+                          color: #fe4070;
+                          display: flex;
+                          justify-content: center;
+                          align-items: center;
+                          padding: 0 .3125rem;
+                          border: 1px solid #fe4070;
+                        }
+                        .promo-rule {
+                          font-size: .6875rem;
+                          max-width: 13.71875rem;
+                          overflow: hidden;
+                          text-overflow: ellipsis;
+                          white-space: nowrap;
+                          line-height: 1rem;
+                          span{
+                            margin-left: .15625rem;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+
+            }
+          }
+        }  
+      }
+      .submit-bottom {
+        position: fixed;
+        left: 0;
+        right: 0;
+        box-shadow: 0 0 0.15625rem #eee;
+        height: 3.0625rem;
+        display: flex;
+        background: #fff;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 .75rem 0 .5rem;
+        z-index: 1;
+        bottom: 3.0625rem;
+
+        .sub-info {
+          display: flex;
+          align-items: center;
+
+          .all-check-text {
+            font-size: .875rem;
+            color: #333;
+            margin-left: .75rem;
+          }
+          .summary {
+            margin-left: .6875rem;
+            color: #999;
+            display: flex;
+            flex-direction: column;
+            div:nth-child(1) {
+              display: flex;
+              align-items: center;
+              .red {
+                font-size: 1rem;
+                margin-left: .3125rem;
+                color: #fe4070;
+              }
+            }
+          }
+        }
+        .submit-btn {
+          width: 7.8125rem;
+          height: 2.25rem;
+          font-size: .875rem;
+          color: #fff;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 1.25rem;
+        }
+        .go-to-submit {
+          background: #fe4070;
+        }
+      }
+      .jq-check-box-checked{
+        display: block;
+        background:#fe4070;
+        width: 1.25rem;
+        height: 1.25rem;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 1.25rem;
+        color: #fff;        
+      }
+    }
+
+  }
+}
