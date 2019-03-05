@@ -156,7 +156,7 @@ class Tuan extends React.Component {
                   <div className="time-right timer" data-time="240277">
                     <span className="sy-time">
                       <font>
-                        <font>仅剩66:40:00</font>
+                        <font>仅剩66:40:10</font>
                       </font>
                     </span>
                     <span className="goods-btn">
