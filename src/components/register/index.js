@@ -1,13 +1,14 @@
 import React from 'react';
 import '@/components/login/index.less'
-const login = class login extends React.Component {
+import NavLink from 'react-router-dom/NavLink';
+const Login = class login extends React.Component {
   render() {
     return (
       <div className="warper">
         <section className="views">
           <a id="back" href="javascript:void(0);">
             <img src="https://f1.jmstatic.com/static_passport/dist/v1.0.135656/touch/login_series/images/NavButtonBack_new.png" alt="" className="return" /></a>
-          <h1 className="theme">注册</h1>
+          <NavLink to="/Register" className="theme">注册</NavLink>
           <a className="top_right" href="/i/mobile/login?redirect=http%3A%2F%2Fi.jumei.com%2Fm%2Faccount%2Fmy">登录</a>
         </section>
         <form action="">
@@ -42,4 +43,4 @@ const login = class login extends React.Component {
   }
 };
 
-export default login
+export default Login

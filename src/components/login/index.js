@@ -1,6 +1,7 @@
 import React from 'react';
-import '@/components/register/index.less'
-const rehister = class rehister extends React.Component {
+import '@/components/register/index.less';
+import NavLink from 'react-router-dom/NavLink';
+const Register = class register extends React.Component {
   render() {
     return (
       <div className="warper">
@@ -8,7 +9,7 @@ const rehister = class rehister extends React.Component {
           <a id="back" href="javascript:void(0);">
             <img src="https://f0.jmstatic.com/static_passport/dist/v1.0.28403/touch/login_series/images/NavButtonBack_new.png" className="return" alt="" />
           </a>
-          <h1 className="theme">登录</h1>
+          <NavLink to="/login" className="theme">登录</NavLink>
           <a className="top_right" href="/i/mobile/register?redirect=http%3A%2F%2Fh5.jumei.com%2Fproduct%2Fdetail%3Fitem_id%3Dht190301p4290116t2%26type%3Dglobal_deal">注册</a>
         </section>
         <form id="login-dynamic-form">
@@ -109,4 +110,4 @@ const rehister = class rehister extends React.Component {
   }
 };
 
-export default rehister
+export default Register
