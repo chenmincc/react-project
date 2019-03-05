@@ -3,7 +3,7 @@
   overflow: hidden;
   position: relative;
   .slide-wrapper {
-    width: 414px;
+    width: 100%;
     position: relative;
     left: 0px;
     .slider-item {
@@ -43,6 +43,7 @@
 
 // icon
 .deals-icon {
+  width: 100%;
   background: #fff;
   margin-bottom: .427rem;
   ul {
@@ -81,6 +82,7 @@
 // content
 // content-header
 .deals-content-header {
+  width: 100%;
   text-align: center;
   .head_bg {
     width: .827rem;
@@ -96,5 +98,113 @@
     color: #333;
     font-size: 14px;
     display: inline-block;
+  }
+}
+
+
+// touch-activity-detail
+// 急速免税 内容
+.touch-activity-detail {
+  li {
+    vertical-align: top;
+    list-style: none;
+    font-size: 14px;
+    a {
+      display: block;
+      text-decoration: none;
+      color: #000;
+      cursor: pointer;
+      .product-info {
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding: .64rem 0;
+        margin: 0 .64rem;
+        // .f1 {
+        //   float: left;
+        // }
+        .product-img {
+          text-align: center;
+          overflow: hidden;
+          width: 5.333rem;
+          height: 5.333rem;
+          float: left;
+          position: relative;
+          z-index: 9;
+          img {
+            transition: all 350ms ease;
+            opacity: 1;
+          }
+          // .haitaoy-label {
+          //   width: 1.6rem;
+          // }
+          .deal-img {
+            width: 100%;
+          }
+          .product-label {
+            position: absolute;
+            width: 100px;
+            top: 0;
+            left: 0;
+            z-index: 19;
+            width: 1.6rem;
+          }
+        }
+        .product-desc {
+          width: 12.6rem;
+          height: 5.333rem;
+          margin-left: .64rem;
+          position: relative;
+          float: left;
+          .product-name {
+            color: #333;
+            font-size: 14px;
+            line-height: 20px;
+            height: 40px;
+            word-break: break-all;
+            word-wrap: break-word;
+            overflow: hidden;
+          }
+          .price-info {
+            font-size: 13px;
+            position: absolute;
+            color: #999;
+            bottom: .8rem;
+            left: 0;
+            .activity-jumei-price {
+              height: 1.125rem;
+              .price {
+                color: #fe4070;
+                span {
+                  font-size: 18px;
+                }
+              }
+              .old {
+                margin-left: .1875rem;
+                text-decoration: line-through;
+             }
+            }
+            .exceed-hidden {
+              display: block;
+              text-overflow: ellipsis;
+              overflow: hidden;
+              white-space: nowrap;
+              .price {
+                color: #fe4070;
+                span {
+                  font-size: 18px;
+                }
+              }
+              .old {
+                margin-left: .1875rem;
+                text-decoration: line-through;
+             }
+            }
+          }
+        }
+        .f1 {
+          float: left;
+        }
+      }
+    }
   }
 }
