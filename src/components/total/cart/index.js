@@ -1,7 +1,15 @@
 import React from 'react';
 import '@/style/cart.less';
-import Footer from '@/components/total/index.js'
+import axios from 'axios';
+import Footer from '@/components/total/index.js';
 class Cart extends React.Component {
+  componentDidMount () {
+    axios.get("/api/index/ajaxDealactList?card_id=4057&client_v=1&page=1&platform=wap&type=formal&page_key=").then(res => {
+      console.log(res);
+    }).catch(error => {
+      console.log(error.message)
+    })
+  }
   render () {
     return (
       <div className="jq-cart">

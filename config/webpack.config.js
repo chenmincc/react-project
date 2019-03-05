@@ -649,6 +649,14 @@ module.exports = function(webpackEnv) {
       tls: 'empty',
       child_process: 'empty',
     },
+    devServer: {
+      proxy: {
+        '/api': {
+          target: 'http://m.jumei.com',
+          changeOrigin: true
+        }
+      }
+    },
     // Turn off performance processing because we utilize
     // our own hints via the FileSizeReporter
     performance: false,
