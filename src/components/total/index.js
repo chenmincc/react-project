@@ -6,7 +6,7 @@ class Footer extends React.Component {
     return ( 
     // <HashRouter>
       <footer>
-        <NavLink to="/" activeClassName="active">
+        <NavLink to="/home/center/today" activeClassName="active">
           <li> 
             <i className="iconfont icon-fangzi"></i>
             <em>首页</em>

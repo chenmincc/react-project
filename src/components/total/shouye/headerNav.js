@@ -13,7 +13,7 @@ const navHeader = class HeaderNav extends Component {
           <div id="navOuter" className="">
             <div id="navInner" className="headerNav">
               <p className="navTitle ntDeal">
-                <NavLink to="/" exact activeClassName='navSelect  '>
+                <NavLink to="/home/center/today" exact activeClassName='navSelect  '>
                   <span>首页</span>
                   <span className="headerNavLine meiyanse"></span>
                 </NavLink>
