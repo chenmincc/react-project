@@ -1,6 +1,24 @@
 import React, { Component } from 'react';
+import axios from 'axios'
 
 const list = class Center extends Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+
+    }
+
+  }
+
+  componentDidMount () {
+    axios.get('/api/index/ajaxDealactList?card_id=4057&client_v=1&page=1&platform=wap&type=formal&page_key=').then(res => {
+      let data = res.data;
+      console.log(data)
+    }).catch(error => {
+      console.log(error)
+    })
+  }
+
   render() {
     return (
       <>
