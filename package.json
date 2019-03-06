@@ -65,7 +65,6 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "proxy":"http://h5.jumei.com/product/ajaxStaticDetail",
   "browserslist": [
     ">0.2%",
     "not dead",

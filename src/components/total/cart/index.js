@@ -3,13 +3,6 @@ import '@/style/cart.less';
 import axios from 'axios';
 import Footer from '@/components/total/index.js';
 class Cart extends React.Component {
-  componentDidMount () {
-    axios.get("http://h5.jumei.com/product/detail?item_id=ht190301p935318t2&type=global_deal").then(res => {
-      console.log(res);
-    }).catch(error => {
-      console.log(error.message)
-    })
-  }
   render () {
     return (
       <div className="jq-cart">
