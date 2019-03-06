@@ -19,7 +19,7 @@ class Me extends Component {
           <div className="operation">
             <NavLink className="signup" to="/register">注册</NavLink>
             <div className="separator"></div>
-            <a className="login">登录</a>
+            <a className="login" href="@">登录</a>
           </div>
         </div>
         <div className="order block">
@@ -102,7 +102,7 @@ class Me extends Component {
           </a>
         </div>
         <div className="hint">
-            客服热线400-123-8888 (8:00-22:00)<br />拨打前请记录您的UID  0    
+            客服热线400-123-8888 (8:00-22:00)<br />拨打前请记录您的UID  0
         </div>
       </div>
     )

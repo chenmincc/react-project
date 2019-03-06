@@ -3,6 +3,16 @@ import Header from '@/components/details/commonModule/header.js';
 import Footer from '@/components/details/commonModule/footer.js';
 import '@/components/details/Less/Particular.less';
 
+
+
+
+
+
+
+
+
+
+
 class Particular extends React.Component {
   render () {
     return (

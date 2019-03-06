@@ -6,11 +6,11 @@ const Register = class Register extends React.Component {
     return (
       <div className="warper">
         <section className="views">
-          <a id="back" href="#">
+          <a id="back" href="@">
             <img src="https://f1.jmstatic.com/static_passport/dist/v1.0.135656/touch/login_series/images/NavButtonBack_new.png" alt="" className="return" />
           </a>
           <NavLink to="/Register" className="theme">注册</NavLink>
-          <a className="top_right" >登录</a>
+          <a className="top_right" href="@">登录</a>
         </section>
         <form action="">
           <div className="other-login">
@@ -26,7 +26,7 @@ const Register = class Register extends React.Component {
               <input type="tel" className="register_input" placeholder="请输入短信验证码" />
             </div>
             <div className="jm_col jm_col_90px">
-              <a className="register_yzm" href="javascript:;">验证</a>
+              <a className="register_yzm" href="@">验证</a>
             </div>
           </div>
             <div className="jm_row">

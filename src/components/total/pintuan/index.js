@@ -8,57 +8,57 @@ class Tuan extends React.Component {
         <section className="nav-con" >
         <div className="nav-outer" id="nav-outer" >
           <div className="list-tab" id="nav-inner" >
-            <a href="#" className="active" data-tab="coutuan_home">
+            <a href="@" className="active" data-tab="coutuan_home">
               <font>
                 <font>推荐</font>
               </font><span></span>
             </a>
-            <a href="#" className="" data-tab="coutuan_baby">
+            <a href="@" className="" data-tab="coutuan_baby">
               <font>
                 <font>健康母婴</font>
               </font><span></span>
             </a>
-            <a href="#" className="" data-tab="coutuan_furniture">
+            <a href="@" className="" data-tab="coutuan_furniture">
               <font>
                 <font>家居</font>
               </font><span></span>
             </a>
-            <a href="#" className="" data-tab="coutuan_shose">
+            <a href="@" className="" data-tab="coutuan_shose">
               <font>
                 <font>鞋类</font>
               </font><span></span>
             </a>
-            <a href="#" className="" data-tab="coutuan_makeup">
+            <a href="@" className="" data-tab="coutuan_makeup">
               <font>
                 <font>美妆</font>
               </font><span></span>
             </a>
-            <a href="#" className="" data-tab="coutuan_bag">
+            <a href="@" className="" data-tab="coutuan_bag">
               <font>
                 <font>百科礼品箱包</font>
               </font><span></span>
             </a>
-            <a href="#"  className="" data-tab="coutuan_food">
+            <a href="@"  className="" data-tab="coutuan_food">
               <font>
                 <font>食品保健</font>
               </font><span></span>
             </a>
-            <a href="#" className="" data-tab="coutuan_jewellery">
+            <a href="@" className="" data-tab="coutuan_jewellery">
               <font>
                 <font>饰品配饰</font>
               </font><span></span>
             </a>
-            <a href="#" className="" data-tab="coutuan_3c">
+            <a href="@" className="" data-tab="coutuan_3c">
               <font>
                 <font>数码家电</font>
               </font><span></span>
             </a>
-            <a href="#" className="" data-tab="coutuan_sports">
+            <a href="@" className="" data-tab="coutuan_sports">
               <font>
                 <font>运动户外</font>
               </font><span></span>
             </a>
-            <a href="#" className="" data-tab="coutuan_pre">
+            <a href="@" className="" data-tab="coutuan_pre">
               <font>
                 <font>下期预告</font>
               </font>
@@ -98,9 +98,9 @@ class Tuan extends React.Component {
                   </span>
                   <span className="sc-price"></span>
                   <span className="jm-price">
-                    
+
                       <i>单买价¥491</i>
-                    
+
                   </span>
                 </div>
                   <div className="time-right timer" data-time="240277">
@@ -119,7 +119,7 @@ class Tuan extends React.Component {
 				    </a>
 			    </li>
           <li>
-            <a href="#" className="goods">
+            <a href="@" className="goods">
               <div className="people-number">
                 <font >
                   <font >5.5万条评论</font>
@@ -168,7 +168,7 @@ class Tuan extends React.Component {
 				    </a>
 			    </li>
           <li>
-            <a href="#" className="goods">
+            <a href="@" className="goods">
               <div className="people-number">
                 <font >
                   <font >5.5万条评论</font>

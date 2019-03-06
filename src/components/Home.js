@@ -4,7 +4,7 @@ import Me from '@/components/me/index.js';
 import Pintuan from '@/components/total/pintuan/index.js';
 import Shouye from '@/components/total/shouye/index.js';
 import Footer from '@/components/total/index.js';
-import { Route, Switch, Redirect} from 'react-router-dom';
+import { Route, Redirect} from 'react-router-dom';
 class Home extends React.Component {
   render () {
     return (
@@ -15,10 +15,10 @@ class Home extends React.Component {
           <Route path="/me" component={Me}></Route>
           <Route path="/home" component={Shouye} ></Route>
           <Route path="/" component={Shouye} exact></Route>
-          
+
           <Redirect from="/" to="/home/center/today"></Redirect>
         {/* </Switch> */}
-        <Footer /> 
+        <Footer />
         </div>
     )
   }
