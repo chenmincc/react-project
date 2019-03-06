@@ -81,7 +81,17 @@ module.exports = function(proxy, allowedHost) {
       disableDotRule: true,
     },
     public: allowedHost,
-    proxy,
+    // proxy,
+    proxy: {
+      '/api1': {
+        target: 'http://m.jumei.com',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api1': ''
+        }
+      }
+    },
+
     before(app, server) {
       if (fs.existsSync(paths.proxySetup)) {
         // This registers user provided middleware for proxy reasons

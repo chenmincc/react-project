@@ -99,6 +99,7 @@ module.exports = function(webpackEnv) {
               },
               stage: 3,
             }),
+
           ],
           sourceMap: isEnvProduction ? shouldUseSourceMap : isEnvDevelopment,
         },
@@ -649,6 +650,7 @@ module.exports = function(webpackEnv) {
       tls: 'empty',
       child_process: 'empty',
     },
+
     // Turn off performance processing because we utilize
     // our own hints via the FileSizeReporter
     performance: false,
