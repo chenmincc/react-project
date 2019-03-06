@@ -1,9 +1,13 @@
 import React from 'react';
+import Header from './commonModule/header';
+import Footer from "./commonModule/footer";
+import '@/components/details/Less/Particular.less'
 
 class Particular extends React.Component {
   render () {
     return (
       <div>
+        <Header></Header>
         {/* 图片盒子 */}
         <section className="ImgBox">
            {/* 图片盒子 */}
@@ -90,8 +94,7 @@ class Particular extends React.Component {
           </div>
         </article>
         </div>
-        {/* 评论logo */}
-
+        <Footer></Footer>
       </div>
     )
   }

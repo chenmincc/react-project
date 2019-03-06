@@ -5,6 +5,7 @@
 
 import React from 'react';
 import '@/components/details/Less/footer.less';
+import '@/components/details/Less/reset.less';
 
 class Footer extends React.Component {
   render () {
