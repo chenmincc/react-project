@@ -4,7 +4,7 @@ import axios from 'axios';
 import Footer from '@/components/total/index.js';
 class Cart extends React.Component {
   componentDidMount () {
-    axios.get("/api/index/ajaxDealactList?card_id=4057&client_v=1&page=1&platform=wap&type=formal&page_key=").then(res => {
+    axios.get("http://h5.jumei.com/product/detail?item_id=ht190301p935318t2&type=global_deal").then(res => {
       console.log(res);
     }).catch(error => {
       console.log(error.message)

@@ -649,6 +649,9 @@ module.exports = function(webpackEnv) {
       tls: 'empty',
       child_process: 'empty',
     },
+    // devServer: {
+    //   proxy: "http://s.h5.jumei.com/yiqituan/tab_list"
+    // },
     // Turn off performance processing because we utilize
     // our own hints via the FileSizeReporter
     performance: false,
