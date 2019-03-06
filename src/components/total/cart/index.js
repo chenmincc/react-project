@@ -1,6 +1,6 @@
 import React from 'react';
 import '@/style/cart.less';
-import Footer from '@/components/total/index.js'
+// import Footer from '@/components/total/index.js';
 class Cart extends React.Component {
   render () {
     return (
@@ -87,7 +87,7 @@ class Cart extends React.Component {
             </div> 
           </div>
         </div>
-        <Footer />
+
       </div>
     )
    

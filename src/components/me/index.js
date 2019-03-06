@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import './me.less';
+import { NavLink} from 'react-router-dom';
 class Me extends Component {
   render () {
     return (
@@ -16,9 +17,9 @@ class Me extends Component {
         <div className="user-unlogin">
           <div className="noportrait"></div>
           <div className="operation">
-            <a className="signup" href="https://passport.jumei.com/i/mobile/register?redirect=http%3A%2F%2Fi.jumei.com%2Fm%2Faccount%2Fmy">注册</a>
+            <NavLink className="signup" to="/register">注册</NavLink>
             <div className="separator"></div>
-            <a className="login" href="https://passport.jumei.com/i/mobile/login?redirect=http%3A%2F%2Fi.jumei.com%2Fm%2Faccount%2Fmy">登录</a>
+            <a className="login">登录</a>
           </div>
         </div>
         <div className="order block">
