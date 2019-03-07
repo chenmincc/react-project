@@ -15,6 +15,10 @@ class Particular extends React.Component {
     }
   }
 
+  getValStor () {
+    let ArrVal = [];
+  }
+
   componentDidMount() {
     axios.get('/api/product/ajaxStaticDetail?item_id='+this.state.itemId +'&type=global_deal')
       .then((res) => {
@@ -32,7 +36,7 @@ class Particular extends React.Component {
           isLoads: false,
           error: error
         })
-      })  
+      })
       axios.get('/api/product/ajaxDynamicDetail?item_id='+this.state.itemId +'&type=global_deal')
       .then((res) => {
         console.log(res.data.data.result);
