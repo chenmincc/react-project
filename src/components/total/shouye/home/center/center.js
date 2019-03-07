@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import List from '@/components/total/shouye/home/center/list/list.js';
 import List1 from '@/components/total/shouye/home/center/list/list1.js';
 import { Route, Switch, NavLink} from 'react-router-dom';
+import Footer from '@/components/total/index.js';
 const center = class Center extends Component {
   render() {
     return (
@@ -20,7 +21,8 @@ const center = class Center extends Component {
           <Route path="/home/center/today" component={List}></Route>
           <Route path="/home/center/tomorrow" component={List1}></Route>
           <Route path="/" component={List} exact></Route>                    
-        </Switch>  
+        </Switch> 
+      <Footer /> 
     </>
     )
   }

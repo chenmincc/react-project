@@ -18,7 +18,6 @@ class Home extends React.Component {
           <Route path="/" component={Shouye}></Route>
 
         </Switch>
-        <Footer />
         </div>
     )
   }

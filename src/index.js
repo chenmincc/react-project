@@ -12,15 +12,12 @@ class App extends React.Component {
   render () {
     return (
       <HashRouter>
-        <>
          <Switch>
           <Route path="/detail/:itemId" component={Particular}></Route>
           <Route path="/register" component={Register}></Route>
           <Route path="/login" component={Login}></Route>          
           <Route path="/" component={Home}></Route>
         </Switch>
-        <Footer />
-        </>
       </HashRouter>
     )
   }

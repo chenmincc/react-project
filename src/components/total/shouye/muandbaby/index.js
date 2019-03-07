@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '@/components/total/shouye/muandbaby/index.less'
-import axios from 'axios'
+import axios from 'axios';
+import Footer from '@/components/total/index.js';
 const muandbaby = class Muandbaby extends Component {
   constructor (props) {
     super(props)
@@ -123,6 +124,7 @@ const muandbaby = class Muandbaby extends Component {
             }
           )
         </section>
+        <Footer />
       </>
     )
   }

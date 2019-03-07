@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '@/components/total/shouye/global/index.less';
 import Icon from '@/components/total/shouye/global/icon.js';
-
+import Footer from '@/components/total/index.js';
 const global = class Global extends Component {
   render() {
     return (
@@ -20,6 +20,7 @@ const global = class Global extends Component {
           </ul>
         </section>
         <Icon></Icon>
+        <Footer />
       </>
     )
   }

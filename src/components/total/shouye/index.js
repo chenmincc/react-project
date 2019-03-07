@@ -7,6 +7,7 @@ import Global from '@/components/total/shouye/global/index.js'
 import Muandbaby from '@/components/total/shouye/muandbaby/index.js'
 import Luxury from '@/components/total/shouye/luxury/index.js'
 import Pop from '@/components/total/shouye/pop/index.js';
+import Footer from '@/components/total/index.js';
 const shouye = class Shouye extends Component {
   render () {
     return (
@@ -30,6 +31,7 @@ const shouye = class Shouye extends Component {
           <Route path='/' component = {Center} exact></Route>
           {/* <Redirect to='/'></Redirect> */}
         </Switch>
+        <Footer />
       </>
     )
   }

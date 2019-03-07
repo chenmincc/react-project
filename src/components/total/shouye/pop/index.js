@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '@/components/total/shouye/pop/index.less'
 import axios from "axios"
-
+import Footer from '@/components/total/index.js';
 const pop = class Pop extends Component {
   constructor (props) {
     super(props)
@@ -52,6 +52,7 @@ const pop = class Pop extends Component {
             )
           })
         }
+        <Footer />
       </>
           )
         }
