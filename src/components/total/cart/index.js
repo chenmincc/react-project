@@ -3,6 +3,30 @@ import '@/style/cart.less';
 import axios from 'axios';
 import Footer from '@/components/total/index.js';
 class Cart extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isChecked:false,
+      checked:[],
+      checkedCount:0,
+      total:0
+    }
+    // this.checkAll = this.checkAll.bind(this);
+    // this.checkOne = this.checkOne.bind(this);
+  }
+  componentDidMount () {
+    axios.get('/api?page=1&card_id=1837').then(res => {
+      console.log(res);
+    })
+  }
+  checkAll () {
+    this.setState({
+      isChecked: !this.state.isChecked
+    })
+  }
+  checkOne () {
+
+  }
   render () {
     return (
       <div className="jq-cart">
@@ -24,13 +48,17 @@ class Cart extends React.Component {
             <div className="jq-groups">
               <div className="jq-group">
                 <div className="jq-group-header"> 
-                  <span className="jq-check-box-checked">√</span> 
+                  {/* <span className="jq-check-box-checked"> */}
+                    <input type="checkbox" className="jq-check-box-checked checkAll" onChange={this.checkAll.bind(this)}/>
+                  {/* </span>  */}
+                  
                   <div className="jq-group-title"> 聚美优品发货 </div>   
                 </div>
                 <ul className="jq-group-content">
                   <li>
                     <div className="item"> 
-                      <span className="jq-check-box-checked">√</span> 
+                      {/* <span className="jq-check-box-checked">√</span>  */}
+                      <input type="checkbox" className="jq-check-box-checked checkOne" onChange={this.checkOne.bind(this)} checked={this.state.isChecked===true} />
                       <div className="item-content"> 
                         <div className="img-title"> 
                           <div className="img-wrap"> 
@@ -73,18 +101,19 @@ class Cart extends React.Component {
           </div>
           <div className="submit-bottom submit-bottom-padding"> 
             <div className="sub-info"> 
-              <span className="jq-check-box-checked">√</span> 
-              <span className="all-check-text">全选</span> 
+              {/* <span className="jq-check-box-checked">√</span>  */}
+              <input type="checkbox" className="jq-check-box-checked checkAll" onChange={this.checkAll.bind(this)} checked={this.state.isChecked===true} />
+              <span className="all-check-text checkAll" >全选</span> 
               <div className="summary"> 
                 <div> 
                   <span>合计</span> 
-                  <span className="red">¥199</span> 
+                  <span className="red">¥0</span> 
                 </div>  
               </div> 
             </div> 
             <div className="submit-btn go-to-submit"> 
               去结算
-              <span>(1)</span> 
+              <span>(0)</span> 
             </div> 
           </div>
         </div>
