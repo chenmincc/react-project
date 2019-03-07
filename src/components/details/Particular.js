@@ -32,7 +32,7 @@ class Particular extends React.Component {
           isLoads: false,
           error: error
         })
-      })
+      })  
       axios.get('/api/product/ajaxDynamicDetail?item_id='+this.state.itemId +'&type=global_deal')
       .then((res) => {
         console.log(res.data.data.result);
