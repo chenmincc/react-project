@@ -55,7 +55,7 @@ const Register = class register extends React.Component {
                 <input type="password" className="register_input" name="password" placeholder="6-16位登录密码" alertname="请设置密码" />
               </div>
             </div>
-            <input type="submit" value="注册" className="register_button" id="tele_register" onClick={ this.zhuce } />
+            <input type="submit" value="注册" className="register_button" id="tele_register"  />
         </form>
         <div className="register_agreement jm_center">点击注册，表示同意
          <a href="http://i.jumei.com/m/account/protocol">《聚美优品用户协议》</a>

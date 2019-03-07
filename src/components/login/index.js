@@ -27,18 +27,22 @@ const Login = class login extends React.Component {
   }
 
   onSubmit(props){
-    axios.post('http://localhost:3000/user/login',
+    axios.post('http://localhost:3001/user/login',
     {
-      userName: this.userName,
-      password: this.password
-    }).then(Response => {
-      var res = Response.data;
-      if(res.data === 0){
-        console.log('aaaa')
+      userName: this.state.userName,
+      password: this.state.password
+    }).then(res => {
+      console.log(res)
+        if(res.code === 0){
+          // alert(window.location.pathName)
+        }
+        // else{
+        //   console.log("002")
+        // }
       }
-    }
-
-    )
+    ).catch(error => {
+      console.log(error)
+    })
   }
 
   render() {
@@ -60,7 +64,7 @@ const Login = class login extends React.Component {
             </div>
             <div className="jm_row icon_phone">
               <div className="jm_col">
-                <input type="text" className="register_input" name="username" id="dynamic_mobile" placeholder="请输入11位手机号" alertname="手机号"    onChange={ this.changeUserName.bind(this) }  />
+                <input type="text" className="register_input" name="userName" id="dynamic_mobile" placeholder="请输入11位手机号" alertname="手机号"    onChange={ this.changeUserName.bind(this) }  />
               </div>
 
             </div>
@@ -78,8 +82,8 @@ const Login = class login extends React.Component {
               <div className="jm_col jm_right">30天内自动登录</div>
             </div>
           </div>
-          <input type="submit" value="登录" className="register_button" id="ga_dynamic_login"
-          onClick={this.onSubmit.bind(this)} />
+          <span className="register_button" id="ga_dynamic_login"
+          onClick={this.onSubmit.bind(this)} >登录</span>
         </form>
       </div>
     )
