@@ -2,6 +2,27 @@ import React from 'react';
 import '@/components/login/index.less'
 import NavLink from 'react-router-dom/NavLink';
 const Register = class register extends React.Component {
+  // constructor (props) {
+  //   super(props);
+  //   this.state = {
+  //     userName:'',
+  //     password:''
+  //   }
+  // }
+
+  // changeUserName(e) {
+  //   let inputValue = e.target.value;
+  //       this.setState({
+  //         userName : inputValue
+  //       })
+  // }
+  // changePassword(e) {
+  //   let inputValue = e.target.value;
+  //       this.setState({
+  //         password : inputValue
+  //       })
+  // }
+
   render() {
 
     return (
