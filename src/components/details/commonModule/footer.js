@@ -4,6 +4,7 @@
  */
 
 import React from 'react';
+import {  NavLink } from 'react-router-dom';
 import '@/components/details/Less/footer.less';
 
 class Footer extends React.Component {
@@ -17,8 +18,10 @@ class Footer extends React.Component {
           </div>
         </div>
         <div className="gm_right">
-          <a href="@" className="jr_gwc">加入购物车</a>
-          <a href="@" className="lj_gm">立即购买</a>
+          {/* <Link to="/cart"> */}
+            <NavLink to="/cart" className="jr_gwc">加入购物车</NavLink >
+          {/* </Link> */}
+          <NavLink to="/cart" className="lj_gm">立即购买</NavLink >
         </div>
       </div>
     )
