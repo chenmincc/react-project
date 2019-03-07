@@ -1,32 +1,94 @@
 import React from 'react';
-import Header from '@/components/details/commonModule/header.js';
+import axios from 'axios';
 import Footer from '@/components/details/commonModule/footer.js';
 import '@/components/details/Less/Particular.less';
+import '@/components/details/Less/header.less'
 
 class Particular extends React.Component {
-  render () {
-    return (
-      <div>
-        <Header />
+  constructor(props) {
+    super(props);
+    this.state = {
+      users: [],
+      imgName: '',
+      data: [],
+      itemId: this.props.match.params.itemId
+    }
+  }
+
+  getValStor () {
+    let ArrVal = [];
+    var objVal = localStorage.setItem()
+  }
+
+  componentDidMount() {
+    axios.get('/api/product/ajaxStaticDetail?item_id='+this.state.itemId +'&type=global_deal')
+      .then((res) => {
+        console.log(res.data.data);
+        console.log(this.state.itemId)
+        this.setState({
+          users: res.data.data,
+          imgName: res.data.data.image_url_set.single_many[0][320]
+        })
+      })
+      .catch((error) => {
+        console.log(error);
+        console.log(this.state.itemId)
+        this.setState({
+          isLoads: false,
+          error: error
+        })
+      })
+      axios.get('/api/product/ajaxDynamicDetail?item_id='+this.state.itemId +'&type=global_deal')
+      .then((res) => {
+        console.log(res.data.data.result);
+        this.setState({
+          data: res.data.data.result
+        })
+      })
+      .catch((error) => {
+        console.log(error);
+        this.setState({
+          error: error
+        })
+      })
+    }
+    render () {
+      let { short_name, name,  } = this.state.users;
+      let { jumei_price, market_price, buyer_number_text }  = this.state.data;
+      return (
+        <div>
+        <header id="headerBox">
+          <div className="outerBox">
+            <div className="goback">
+              <span className="iconfont icon-left jtLeft"></span>
+            </div>
+            <div className="logoMid">
+                { short_name }
+            </div>
+            <div className="atMore">
+              <span className="iconfont icon-fangzi header-rightTb"></span>
+            </div>
+          </div>
+        </header>
         {/* 图片盒子 */}
         <section className="ImgBox">
            {/* 图片盒子 */}
            <article className="neiBox">
               <img src="http://p0.jmstatic.com/banner/area/000/000/029.jpg" className="logoJs" alt="网络连接失败" />
-              <img src="http://mp5.jmstatic.com/product/003/426/3426004_std/3426004_1000_1000.jpg?v=1490789863&imageView2/2/w/800/q/90"  alt="网络连接失败"/>
+              <img src={ this.state.imgName}  alt="网络连接失败"/>
            </article>
          </section>
         {/* 商品售价及其他信息 */}
         <article className="priceBox">
           <div className="normalShow">
             <div className="price_info">
-              <span className="cur_price">￥49.9</span>
-              <span className="cost_price">￥59.9</span>
+              <span className="cur_price">￥ { jumei_price } </span>
+              <span className="cost_price">￥{ market_price }</span>
               <span className="detail_text">
               价格详情
               <i className="iconfont icon-biao query_icon"></i>
               </span>
-              <strong>3341人已购买</strong>
+              <strong>{ buyer_number_text }</strong>
             </div>
             <div className="downWrap">
               <div className="count_down">
@@ -39,7 +101,7 @@ class Particular extends React.Component {
         <article className="desc_wrap">
           <div className="normal_desc">
             <span className="desc_iconv2">聚美自营</span>
-            碧柔含水清爽保湿防晒乳液新版 50g，让你不怕晒！
+            { name }
           </div>
         </article>
         <div className="additional-Box">
@@ -94,7 +156,6 @@ class Particular extends React.Component {
           </div>
         </article>
         </div>
-        {/* 评论logo */}
         <Footer />
       </div>
     )

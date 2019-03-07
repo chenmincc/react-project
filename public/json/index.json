@@ -1,6 +1,6 @@
 [
   {
-    "itemId": "h1",
+    "item-id": "ht190301p1305834t2",
     "name": "雅诗兰黛 特润修护肌透精华露(第六代小棕瓶)50ml",
     "shortName": "雅诗兰黛特润修护肌透精华露50ml",
     "product_desc": "1.3万条评论",
@@ -13,7 +13,7 @@
     "perpson": "549"
   },
   {
-    "itemId": "h2",
+    "item-id": "ht190301p973973t2",
     "name": "玫瑰幽香缔造嫩肌！兰蔻粉水清滢柔肤水(干性)400ml",
     "shortName": "兰蔻粉水清滢柔肤水(干性)400ml",
     "product_desc": "3.1万条评论",
@@ -26,7 +26,7 @@
     "perpson": "8260"
   },
   {
-    "itemId": "h3",
+    "item-id": "ht190301p2197892t2",
     "name": "雪花秀滋盈肌本润颜水乳套裝(滋阴水乳套盒)",
     "shortName": "雪花秀滋盈肌本润颜水乳套裝",
     "product_desc": "1.2万条评论",
@@ -39,20 +39,7 @@
     "perpson": "1447"
   },
   {
-    "itemId": "h4",
-    "name": "兰蔻精华肌底液100ml，还原肌肤初生质感。",
-    "shortName": "兰蔻 (Lancome)精华肌底液100ml",
-    "product_desc": "3188条评论",
-    "jumei_price": "919",
-    "market_price": "",
-    "jsms": "http://p0.jmstatic.com/banner/area/000/000/020.jpg",
-    "url": "http://h5.jumei.com/product/detail?item_id=ht090301p1308194t2&type=global_deal",
-    "imgUrl": "http://mp6.jmstatic.com/product/001/308/1308194_std/1308194_dx_1154_400.jpg?_t=1501409145&imageView2/2/w/800/q/90",
-    "xqImg": "http://mp4.jmstatic.com/product/001/308/1308194_std/1308194_1000_1000.jpg@base@tag=imgScale&w=800&q=90?v=1423651870",
-    "perpson": "8260"
-  },
-  {
-    "itemId": "h5",
+    "item-id": "ht190301p2197959t2",
     "name": "su:m37时光能量水乳面霜三件套套盒",
     "shortName": "时光能量水乳面霜三件套套盒",
     "product_desc": "5349条评论",
@@ -65,7 +52,7 @@
     "perpson": "761"
   },
   {
-    "itemId": "h6",
+    "item-id": "ht190301p1316622t2",
     "name": "SK-II护肤精华露250ml，让肌肤散发闪耀光彩！",
     "shortName": "SK II护肤精华露250ml",
     "product_desc": "4261条评论",

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import { Link } from 'react-router-dom';
 const list = class Center extends Component {
   constructor (props) {
     super(props)
@@ -30,7 +31,7 @@ const list = class Center extends Component {
           {
             this.state.list.map((item, index) => {
               return (
-                <a href='/' className='productItem' key={index}>
+                <Link to={'/detail/'+item['item-id']} className='productItem' key={index}>
                   <div className='dealItem itemEach'>
                     <div className="productImg">
                       <img src={item.imgUrl} lazy="loaded" alt='' />
@@ -51,7 +52,7 @@ const list = class Center extends Component {
                       </div>
                     </div>
                   </div>
-                </a>
+                </Link>
               )
             })
           }

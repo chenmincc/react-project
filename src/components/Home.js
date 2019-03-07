@@ -9,16 +9,16 @@ class Home extends React.Component {
   render () {
     return (
         <div>
-        {/* <Switch>       */}
+        <Switch>
           <Route path="/pintuan" component={Pintuan}></Route>
           <Route path="/cart" component={Cart}></Route>
           <Route path="/me" component={Me}></Route>
           <Route path="/home" component={Shouye} ></Route>
-          <Route path="/" component={Shouye} exact></Route>
-          
-          <Redirect from="/" to="/home/center/today"></Redirect>
-        {/* </Switch> */}
-        <Footer /> 
+          <Redirect from='/' to="/home/center/today"></Redirect>
+          {/* <Route path="/" component={Shouye} ></Route> */}
+
+        </Switch>
+        <Footer />
         </div>
     )
   }

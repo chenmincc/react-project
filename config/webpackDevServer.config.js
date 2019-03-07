@@ -89,6 +89,20 @@ module.exports = function(proxy, allowedHost) {
         pathRewrite: {
           '^/api1': ''
         }
+      },
+      '/api': {
+        target: 'http://h5.jumei.com',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': ''
+        }
+      },
+      '/pintuan': {
+        target: 'http://s.h5.jumei.com',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/pintuan': ''
+        }
       }
     },
 
