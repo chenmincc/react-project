@@ -7,39 +7,29 @@ import Register from '@/components/register/index.js'
 
 
 class App extends React.Component {
-  render() {
+  fn1 () {
+    console.log('akv' )
+    }
 
+  render() {
       return (
       <BrowserRouter>
-      <switch>
-        {/* <div>
+      <div>
+        {/* <Register></Register>
+        <div>
           <NavLink to="Register">Register</NavLink>
         </div>
         <div>
           <NavLink to="Login">Login</NavLink>
+          <button onClick={this.fn1}>按钮</button>
         </div> */}
-        <Route path="/login/" component={Login}></Route>
-        <Route path="/register/" component={Register}></Route>
-      </switch>
+        <Route path="/login" component={Login}></Route>
+        <Route path="/register" component={Register}></Route>
+      </div>
       </BrowserRouter>
       )
-
   }
 }
-
-// const Login = () => {
-//   return (
-//     <div>
-//       登录页
-//     </div>
-//   )
-// }
-
-// const Register = () => {
-//   return (
-//     <din>注册页</din>
-//   )
-// }
 
 ReactDOM.render(<App />, document.getElementById('root'));
 

@@ -99,6 +99,12 @@ module.exports = function(webpackEnv) {
               },
               stage: 3,
             }),
+            // 配置px装好为rem的条件
+            // require('postcss-pxtorem')({
+            //   rootValue:10,
+            //   propWhiteList:[],
+            //   minPiexlValue:2
+            // })
           ],
           sourceMap: isEnvProduction ? shouldUseSourceMap : isEnvDevelopment,
         },
