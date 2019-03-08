@@ -21,7 +21,10 @@ const muandbaby = class Muandbaby extends Component {
       console.log(error)
     })
   }
+<<<<<<< HEAD
 
+=======
+>>>>>>> min
   render () {
     return (
       <>
@@ -62,28 +65,28 @@ const muandbaby = class Muandbaby extends Component {
           </h2>
           <div className="metra-lists" style={{height: 207.5+"px"}} >
           {/*  eslint-disable-next-line */}
-            <a className="metra-list change-schame"  href="/" style={{top:0+"rem",left:0+"rem",width:5+"rem", height:5+"rem"}}>
+            <a className="metra-list change-schame"  href="/" style={{top:0+"rem",left:0+"rem",width:"25%", height:5+"rem"}}>
               <img src="http://mp5.jmstatic.com/mobile/card_material/item_2386_512_512-ipad2048_1502086238.jpeg?imageView2/2/w/160/q/90" alt="" />
             </a>
-            <a className="metra-list change-schame"  href="/" style={{top:0+"rem",left:5+"rem",width:5+"rem", height:5+"rem"}}>
+            <a className="metra-list change-schame"  href="/" style={{top:0+"rem",left:"25%",width:"25%", height:5+"rem"}}>
               <img src="http://mp5.jmstatic.com/mobile/card_material/item_2386_512_512-ipad2048_1498543173.jpeg?imageView2/2/w/160/q/90" alt="" />
             </a>
-            <a className="metra-list change-schame" href="/" style={{top:0+"rem",left:10+"rem",width:5+"rem", height:5+"rem"}}>
+            <a className="metra-list change-schame" href="/" style={{top:0+"rem",left:"50%",width:"25%", height:5+"rem"}}>
               <img src="http://mp6.jmstatic.com/mobile/card_material/item_2386_512_512-ipad2048_1548055580.jpeg?imageView2/2/w/160/q/90" alt="" />
             </a>
-            <a className="metra-list change-schame"  href="/" style={{top:0+"rem",left:15+"rem",width:5+"rem", height:5+"rem"}}>
+            <a className="metra-list change-schame"  href="/" style={{top:0+"rem",left:"75%",width:"25%", height:5+"rem"}}>
               <img src="http://mp5.jmstatic.com/mobile/card_material/item_2386_512_512-ipad2048_1551235310.jpeg?imageView2/2/w/160/q/90" alt="" />
             </a>
-            <a className="metra-list change-schame"  href="/" style={{top:5+"rem",left:0+"rem",width:5+"rem", height:5+"rem"}}>
+            <a className="metra-list change-schame"  href="/" style={{top:5+"rem",left:0+"rem",width:"25%", height:5+"rem"}}>
               <img src="http://mp6.jmstatic.com/mobile/card_material/item_2386_512_512-ipad2048_1548056454.jpeg?imageView2/2/w/160/q/90" alt="" />
             </a>
-            <a className="metra-list change-schame" href="/" style={{top:5+"rem",left:5+"rem",width:5+"rem", height:5+"rem"}}>
+            <a className="metra-list change-schame" href="/" style={{top:5+"rem",left:"25%",width:"25%", height:5+"rem"}}>
               <img src="http://mp5.jmstatic.com/mobile/card_material/item_2386_512_512-ipad2048_1498543566.jpeg?imageView2/2/w/160/q/90" alt="" />
             </a>
-            <a className="metra-list change-schame"  href="/" style={{top:5+"rem",left:10+"rem",width:5+"rem", height:5+"rem"}}>
+            <a className="metra-list change-schame"  href="/" style={{top:5+"rem",left:"50%",width:"25%", height:5+"rem"}}>
               <img src="http://mp5.jmstatic.com/mobile/card_material/item_2386_512_512-ipad2048_1548055217.png?imageView2/2/w/160/q/90" alt="" />
             </a>
-            <a className="metra-list change-schame" href="/" style={{top:5+"rem",left:15+"rem",width:5+"rem", height:5+"rem"}}>
+            <a className="metra-list change-schame" href="/" style={{top:5+"rem",left:"75%",width:"25%", height:5+"rem"}}>
               <img src="http://mp6.jmstatic.com/mobile/card_material/item_2386_512_512-ipad2048_1498559288.jpeg?imageView2/2/w/160/q/90" alt="" />
             </a>
           </div>

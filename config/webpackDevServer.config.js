@@ -84,6 +84,7 @@ module.exports = function(proxy, allowedHost) {
     // proxy,
     proxy: {
       '/api1': {
+<<<<<<< HEAD
         'target': 'http://m.jumei.com',
         'changeOrigin': true,
         'pathRewrite': {
@@ -99,6 +100,30 @@ module.exports = function(proxy, allowedHost) {
         'changeOrigin': true
       },
     },
+=======
+        target: 'http://m.jumei.com',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api1': ''
+        }
+      },
+      '/api': {
+        target: 'http://h5.jumei.com',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': ''
+        }
+      },
+      '/pintuan': {
+        target: 'http://s.h5.jumei.com',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/pintuan': ''
+        }
+      }
+    },
+
+>>>>>>> min
     before(app, server) {
       if (fs.existsSync(paths.proxySetup)) {
         // This registers user provided middleware for proxy reasons
