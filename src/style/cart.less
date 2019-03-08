@@ -37,22 +37,20 @@
       overflow: auto;
 
       .jq-cart-no-goods {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
         width: 100%;
-        display: none;
+        height: 600px;
+        text-align: center;
 
         .jq-oops {
           width: 5.375rem;
           height: 5.125rem;
           background: url(../image/no-card-oops.png) no-repeat;
           background-size: 100% 100%;
+          margin:120px auto 50px;
         }
 
         .jq-empty-cart {
-          font-size: 0.875rem;
+          font-size: 0.775rem;
           line-height: 0.9375rem;
           color: #333;
           margin-top: 1rem;
@@ -68,13 +66,14 @@
           background: #fe4070;
           line-height: 2.25rem;
           text-align: center;
+          margin: auto;
           margin-top: 1.4375rem;
           font-size: .8125rem;
         }
       }
       .jq-cart-goods{
         width: 100%;
-
+        padding-bottom: 6.2rem;
         .jq-count-down {
           padding: 0 0.5rem;
           height: 1.875rem;
@@ -147,6 +146,7 @@
                         .title {
                           display: -webkit-box;
                           // width: 14.5625rem;
+                          min-width: 11.3rem;
                           max-height: 2.5rem;
                           text-overflow: ellipsis;
                           overflow: hidden;
@@ -154,7 +154,24 @@
                           line-height: 1.25rem;
                           text-align: left;
                           word-break: break-all;
+                          .red{
+                            color: #fe4070;
+                          }
                         }
+                        .number-editor {
+                          margin-top: .5rem;
+                          height: 1.4375rem;
+                          display: flex;
+                          align-items: center;
+                          span:nth-child(2) {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            width: 2.5rem;
+                            height: 1.375rem;
+                            color: #333;
+                          }
+                      }
                         .sub-title-1 {
                           margin-top: 0.1875rem;
                           line-height: 0.75rem;
@@ -186,6 +203,17 @@
                             overflow: hidden;
                             text-overflow: ellipsis;
                             white-space: nowrap;
+                          }
+                          .actions{
+                            display: flex;
+                            align-items: center;
+                            .gap-line {
+                              display: inline-block;
+                              width: 1px;
+                              height: .78125rem;
+                              margin-left: .375rem;
+                              margin-right: .375rem;
+                          }
                           }
                         }
                       }
