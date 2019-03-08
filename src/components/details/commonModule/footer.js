@@ -88,7 +88,7 @@ class Footer extends React.Component {
           <div className="boxFlex">
             <i className="iconfont icon-gouwu" id="shopping-cart"></i>
             <span className="cart-num">{this.state.totalNum}</span>
-            <span className="textCart">购物车</span>
+            <NavLink to="/cart" className="textCart">购物车</NavLink>
           </div>
         </div>
         <div className="gm_right">

@@ -14,11 +14,7 @@ const pop = class Pop extends Component {
   componentDidMount () {
     axios.get('/api1/pop/ajaxGetList?page=2&item_per_page=20').then(response => {
       let res = response.data.item_list;
-<<<<<<< HEAD
-      console.log(res)
-=======
       // console.log(res)
->>>>>>> min
       this.setState({
         popList: res
       })

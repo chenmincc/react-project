@@ -22,10 +22,6 @@ const muandbaby = class Muandbaby extends Component {
       console.log(error)
     })
   }
-<<<<<<< HEAD
-
-=======
->>>>>>> min
   render () {
     return (
       <>

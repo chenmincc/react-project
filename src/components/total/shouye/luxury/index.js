@@ -59,11 +59,7 @@ const luxury = class Luxury extends Component {
             <span>今日热销品牌</span>
           </h2>
           <div className="metra-lists" style={{height: 414+"px"}}>
-<<<<<<< HEAD
-            <a className="metra-list change-schame" style={{top:0+"rem", left:0+"rem", width:20+"rem", height:10+"rem"}} href="/">
-=======
             <a className="metra-list change-schame" style={{top:0+"rem", left:0+"rem", width:'100%', height:10+"rem"}} href="/">
->>>>>>> min
               <img src="http://mp6.jmstatic.com/mobile/card_material/item_0_2048_1024-ipad2048_5c7e528eb0735.jpg?t=1551782542&imageView2/2/w/640/q/90" alt="" />
             </a>
             <a className="metra-list change-schame" style={{top:10+"rem", left:0+"rem", width:'50%', height:10+"rem"}} href="/">

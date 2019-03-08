@@ -42,7 +42,7 @@ class Cart extends React.Component {
 
   // 删除商品
   deleteGoods () {
-
+    console.log(this.state.cartGoods)
   }
 
   ///计算选中商品的条数
@@ -59,8 +59,8 @@ class Cart extends React.Component {
     }).catch(error=>{
       console.log(error);
     })
-    if(this.state.cartGoods.length !== 0){
-      let goodsStore = JSON.parse(localStorage.getItem(goods));
+    if(this.state.totalGoods.length !== 0){
+      let goodsStore = JSON.parse(localStorage.getItem("goods"));
       // console.log(goodsStore);
       for(var i = 0;i < this.state.totalGoods.length;i++){
         for(var j =0;j < goodsStore.length;j++){
