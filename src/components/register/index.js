@@ -1,27 +1,60 @@
 import React from 'react';
 import '@/components/login/index.less'
-import NavLink from 'react-router-dom/NavLink';
+// import NavLink from 'react-router-dom/NavLink';
+import axios from 'axios'
 const Register = class register extends React.Component {
-  // constructor (props) {
-  //   super(props);
-  //   this.state = {
-  //     userName:'',
-  //     password:''
-  //   }
-  // }
+  constructor (props) {
+    super(props);
+    this.state = {
+      userName:'',
+      password:''
+    }
+  }
 
-  // changeUserName(e) {
-  //   let inputValue = e.target.value;
-  //       this.setState({
-  //         userName : inputValue
-  //       })
-  // }
-  // changePassword(e) {
-  //   let inputValue = e.target.value;
-  //       this.setState({
-  //         password : inputValue
-  //       })
-  // }
+  changeUserName(e) {
+    let inputValue = e.target.value;
+
+    axios.post('http://localhost:3001/user/register1',
+    {
+      userName:inputValue
+    })
+    .then(res => {
+        if(res.data.code === 0){
+          this.setState({
+            userName : inputValue
+          })
+        }else{
+          alert(res.data.msg)
+        }
+    }).catch(error => {
+      console.log(error)
+    })
+
+  }
+  changePassword(e) {
+    let inputValue = e.target.value;
+        this.setState({
+          password : inputValue
+        })
+  }
+
+  onRegisterSubmit(props){
+    axios.post('http://localhost:3001/user/register',
+    {
+      userName: this.state.userName,
+      password: this.state.password
+    })
+    .then(res => {
+      console.log(res)
+        if(res.data.code === 0){
+          console.log(1)
+          this.props.history.push('../login/index.js')
+        }
+    }).catch(error => {
+      console.log(error)
+    })
+
+  }
 
   render() {
 
@@ -30,8 +63,8 @@ const Register = class register extends React.Component {
         <section className="views">
           <a id="back" href="javascript:void(0);">
             <img src="https://f1.jmstatic.com/static_passport/dist/v1.0.135656/touch/login_series/images/NavButtonBack_new.png" alt="" className="return" /></a>
-          <NavLink to="/Register" className="theme" >注册</NavLink>
-          <a className="top_right" href="/i/mobile/login?redirect=http%3A%2F%2Fi.jumei.com%2Fm%2Faccount%2Fmy">登录</a>
+          <a className="theme" href="/register" >注册</a>
+          <a className="top_right" href="/login">登录</a>
         </section>
         <form action="">
           <div className="other-login">
@@ -39,23 +72,18 @@ const Register = class register extends React.Component {
           </div>
           <div className="jm_row icon_phone">
             <div className="jm_col">
-              <input type="text" className="register_input" name="username" placeholder="请输入11位手机号" alertname="请输入手机号码" id="account"  />
+              <input type="text" className="register_input" name="username" placeholder="请输入用户名" alertname="请输入手机号码" id="account" onMouseLeave={this.changeUserName.bind(this)} />
             </div>
           </div>
           <div className="jm_row">
-            <div className="jm_col">
-              <input type="tel" className="register_input" placeholder="请输入短信验证码"  name="password" />
-            </div>
-            <div className="jm_col jm_col_90px">
-              <a className="register_yzm" href="javascript:;">验证</a>
-            </div>
           </div>
             <div className="jm_row">
               <div className="jm_col">
-                <input type="password" className="register_input" name="password" placeholder="6-16位登录密码" alertname="请设置密码" />
+                <input type="password" className="register_input" name="password" placeholder="6-16位登录密码" alertname="请设置密码" onChange={this.changePassword.bind(this)} />
               </div>
             </div>
-            <input type="submit" value="注册" className="register_button" id="tele_register"  />
+            <span className="register_button" id="tele_register"
+            onClick={this.onRegisterSubmit.bind(this)} >注册</span>
         </form>
         <div className="register_agreement jm_center">点击注册，表示同意
          <a href="http://i.jumei.com/m/account/protocol">《聚美优品用户协议》</a>

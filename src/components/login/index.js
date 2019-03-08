@@ -1,7 +1,7 @@
 import React from 'react';
 import '@/components/register/index.less';
-import NavLink from 'react-router-dom/NavLink';
-import history from 'history';
+// import NavLink from 'react-router-dom/NavLink';
+// import history from 'history';
 import axios from 'axios'
 // import {createBrowserHistory, createHashHistory, createMemoryHistory} from 'history'
 const Login = class login extends React.Component {
@@ -27,18 +27,16 @@ const Login = class login extends React.Component {
   }
 
   onSubmit(props){
+
     axios.post('http://localhost:3001/user/login',
     {
       userName: this.state.userName,
       password: this.state.password
     }).then(res => {
       console.log(res)
-        if(res.code === 0){
-          // alert(window.location.pathName)
+        if(res.data.code === 0){
+         this.props.history.push("../total/shouye/index.js")
         }
-        // else{
-        //   console.log("002")
-        // }
       }
     ).catch(error => {
       console.log(error)
@@ -52,8 +50,8 @@ const Login = class login extends React.Component {
           <a id="back" href="javascript:void(0);">
             <img src="https://f0.jmstatic.com/static_passport/dist/v1.0.28403/touch/login_series/images/NavButtonBack_new.png" className="return" alt="" />
           </a>
-          <NavLink to="/login" className="theme">登录</NavLink>
-          <a className="top_right" href="/i/mobile/register?redirect=http%3A%2F%2Fh5.jumei.com%2Fproduct%2Fdetail%3Fitem_id%3Dht190301p4290116t2%26type%3Dglobal_deal">注册</a>
+          <a className="theme" href="/login">登录</a>
+          <a className="top_right" href="/register">注册</a>
         </section>
         <form id="login-dynamic-form">
           <div id="iphone_login">
@@ -64,17 +62,14 @@ const Login = class login extends React.Component {
             </div>
             <div className="jm_row icon_phone">
               <div className="jm_col">
-                <input type="text" className="register_input" name="userName" id="dynamic_mobile" placeholder="请输入11位手机号" alertname="手机号"    onChange={ this.changeUserName.bind(this) }  />
+                <input type="text" className="register_input" name="userName" id="dynamic_mobile" placeholder="请输入用户名" alertname="手机号"    onChange={ this.changeUserName.bind(this) }  />
               </div>
 
             </div>
             <div className="jm_row">
               <div className="jm_col">
-                <input type="tel" className="register_input" name="password" placeholder="请输入短信验证码" id="dynamic_password" alertname="短信验证码"
+                <input type="tel" className="register_input" name="password" placeholder="请输入密码" id="dynamic_password" alertname="短信验证码"
                 onChange={this.changePassword.bind(this) } />
-              </div>
-              <div className="jm_col jm_col_90px">
-                <a className="register_yzm" href="javascript:;">验证</a>
               </div>
             </div>
             <div className="jm_row register_jumei_account">
