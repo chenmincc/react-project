@@ -3,6 +3,7 @@ import axios from 'axios';
 import Footer from '@/components/details/commonModule/footer.js';
 import '@/components/details/Less/Particular.less';
 import '@/components/details/Less/header.less'
+import '@/components/details/Less/footer.less';
 
 class Particular extends React.Component {
   constructor(props) {
@@ -11,7 +12,8 @@ class Particular extends React.Component {
       users: [],
       imgName: '',
       data: [],
-      itemId: this.props.match.params.itemId
+      itemId: this.props.match.params.itemId,
+      // totalNum: ''
     }
   }
 
@@ -19,6 +21,62 @@ class Particular extends React.Component {
     let ArrVal = [];
     var objVal = localStorage.setItem()
   }
+
+  // addCart () {
+  //   var i = this.state.itemId
+	// 	var bid = i;
+  //   // alert(bid);
+  //   var _this = this;
+  //   var obj = [
+  //     {
+  //       "bid":bid,
+  //       "num":1
+  //     }
+  //   ];
+  //   var objStr = JSON.stringify(obj);
+	// 			if(localStorage.getItem("goods")){
+	// 				var storGoods = localStorage.getItem("goods");
+	// 				var storGoodsJson = JSON.parse(storGoods);
+
+	// 				var flag = false;
+	// 				for (var i = 0; i < storGoodsJson.length; i++) {
+	// 					if(storGoodsJson[i].bid == bid){
+	// 						storGoodsJson[i].num++;
+	// 						flag = true;
+	// 						break;
+	// 					}
+	// 				}
+	// 				if(!flag){
+	// 					var goodObj = {"bid":bid,"num":1}
+	// 					storGoodsJson.push(goodObj);
+
+	// 				}
+
+	// 				var storGoodsStr = JSON.stringify(storGoodsJson);
+	// 				localStorage.setItem("goods",storGoodsStr);
+
+	// 			}else{
+	// 				localStorage.setItem("goods",objStr);
+	// 			}
+	// 			_this.computeNum();
+  // }
+
+  // computeNum(){
+  //   var _this = this;
+
+  //   if(localStorage.getItem("goods")){//有商品信息
+  //     var storGoodsStr = localStorage.getItem("goods");
+  //     var storGoddsJson = JSON.parse(storGoodsStr);
+  //     var num = 0;
+  //     for (var i = 0; i < storGoddsJson.length; i++) {
+  //       num += Number(storGoddsJson[i].num);
+  //     }
+  //     _this.setState({
+  //       totalNum: num
+  //     })
+
+  //   }
+  // }
 
   componentDidMount() {
     axios.get('/api/product/ajaxStaticDetail?item_id='+this.state.itemId +'&type=global_deal')
@@ -156,7 +214,8 @@ class Particular extends React.Component {
           </div>
         </article>
         </div>
-        <Footer />
+
+        <Footer data1={this.state.users}  data2={this.state.data} itemId={this.state.itemId} img={this.state.imgName} />
       </div>
     )
   }
