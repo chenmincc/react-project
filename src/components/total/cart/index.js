@@ -1,14 +1,20 @@
 import React from 'react';
 import '@/style/cart.less';
-// import Footer from '@/components/total/index.js';
+import axios from 'axios';
+import Footer from '@/components/total/index.js';
 class Cart extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
+      defaultDisplay: false,
       isChecked: false,
-      goods:[]
+      goods:[],
+      totalGoods:[],
+      cartGoods:['1'],
+      goodsNum:[]
     }
   }
+  // 多选框
   checkAll () {
     this.setState({
       isChecked: !this.state.isChecked
@@ -26,8 +32,63 @@ class Cart extends React.Component {
       goods: goods
     })
   }
+
+  //编辑页面和展示页面的切换
+  toggleText () {
+    this.setState({
+      defaultDisplay: !this.state.defaultDisplay
+    })
+  }
+
+  // 删除商品
+  deleteGoods () {
+
+  }
+
+  ///计算选中商品的条数
+  computeGoodsNum () {
+    let num = 0;
+  }
+  componentDidMount() {
+    
+    axios.get('/json/index.json').then(res=>{
+      this.setState({
+        totalGoods:res.data
+      })
+      console.log(this.state.totalGoods);
+    }).catch(error=>{
+      console.log(error);
+    })
+    if(this.state.cartGoods.length !== 0){
+      let goodsStore = JSON.parse(localStorage.getItem(goods));
+      // console.log(goodsStore);
+      for(var i = 0;i < this.state.totalGoods.length;i++){
+        for(var j =0;j < goodsStore.length;j++){
+          if(this.state.totalGoods[i]['item-id'] == goodsStore[j].bid){
+            this.setState({
+              cartGoods: this.state.totalGoods[i],
+              goodsNum: goodsStore[j].num
+            })
+          }
+        }
+      }
+    }
+  }
   render () {
+    const okStyle = {
+      display: this.state.defaultDisplay ? 'block' : 'none'
+    }
+    const BianjiStyle = {
+      display: this.state.defaultDisplay ? 'none' : 'block'
+    }
+    const nocartStyle = {
+      display: this.state.cartGoods.length === 0? 'block' : 'none'
+    }
+    const cartStyle = {
+      display: this.state.cartGoods.length === 0? 'none' : 'block'
+    }
     return (
+      <>
       <div className="jq-cart">
         <div className="jq-header">
           <i className="iconfont icon-left jq-headerBack"></i>
@@ -35,12 +96,12 @@ class Cart extends React.Component {
           <i className="iconfont icon-fangzi jq-headerHome"></i>
         </div>
         <div className="jq-cart-main">
-          <div className="jq-cart-no-goods"> 
+          <div className="jq-cart-no-goods" style={nocartStyle}> 
             <div className="jq-oops"></div> 
             <div className="jq-empty-cart">您的购物车中没有商品，请先去挑选心爱的商品吧！</div> 
             <div className="jq-go-stroll">去逛逛</div> 
           </div>
-          <div className="jq-cart-goods">
+          <div className="jq-cart-goods" style={cartStyle} >
             <div className="jq-count-down"> 
               <div className="jq-clock-msg">商品数量有限，请尽快结算</div>  
             </div>
@@ -52,51 +113,76 @@ class Cart extends React.Component {
                   <div className="jq-group-title" value="this.state."> 聚美优品发货 </div>   
                 </div>
                 <ul className="jq-group-content">
-                  <li>
-                    <div className="item"> 
-                      {/* <span className="jq-check-box-checked">√</span>  */}
-                      <input type="checkbox" className="jq-check-box-checked" value="1" onChange={this.checkOne.bind(this)} checked={this.state.goods.indexOf('1') > -1} />
-                      <div className="item-content"> 
-                        <div className="img-title"> 
-                          <div className="img-wrap"> 
-                            <img src="https://p1.jmstatic.com/product/001/021/1021036_std/1021036_200_200.jpg" alt="珀莱雅海洋活能水漾套装" />  
-                          </div> 
-                          <div className="text-wrap"> 
-                            <span className="title"> 珀莱雅海洋活能水漾套装 </span> 
-                            <div className="sub-title-1"> 
-                              <span>套</span> 
-                              <span>×1</span> 
-                            </div> 
-                            <div className="price-edit"> 
-                              <span className="price"> ¥199 </span>  
-                              <span className="edit">编辑</span> 
-                            </div>
-                          </div>  
-                        </div> 
-                        <div className="discount-detail"> 
-                          <div className="discount-item"> 
-                            <span>满减</span> 
-                            <div className="promo-rule"> 
-                              <span>珀莱雅部分满199减100不封顶</span> 
+                  {
+                    this.state.totalGoods.map(item => {
+                      return (
+                        <li key={item['item-id']}>
+                          <div className="item"> 
+                            {/* <span className="jq-check-box-checked">√</span>  */}
+                            <input type="checkbox" className="jq-check-box-checked" value="1" onChange={this.checkOne.bind(this)} checked={this.state.goods.indexOf('1') > -1} />
+                            <div className="item-content"> 
+                              <div className="img-title"> 
+                                <div className="img-wrap"> 
+                                  <img src={item.imgUrl} alt={item.shortName} />  
+                                </div> 
+                                <div className="text-wrap" id="bianji" style={BianjiStyle}> 
+                                  <span className="title"> {item.name} </span> 
+                                  <div className="sub-title-1"> 
+                                    <span>套</span> 
+                                    <span>×{item.num}</span> 
+                                  </div> 
+                                  <div className="price-edit"> 
+                                    <span className="price"> ￥{item.jumei_price} </span>  
+                                    <span className="edit" onClick={this.toggleText.bind(this)}>编辑</span> 
+                                  </div>
+                                </div>
+                                <div className="text-wrap" id="xiangxi" style={okStyle}> 
+                                  <span className="title"> 
+                                    <span className="red">[极速免税]</span>
+                                    {item.shortName}
+                                  </span>
+                                  <div className="number-editor"> 
+                                    <span className="decrease">+</span> 
+                                    <span className="goodsNum">1</span> 
+                                    <span className="increase">-</span> 
+                                  </div>
+                                  <div className="price-edit"> 
+                                    <span className="price editing"> ¥219 </span>  
+                                    <div className="actions"> 
+                                      <span className="delete" onClick={this.deleteGoods.bind(this)}>删除</span> 
+                                      <span className="gap-line"></span> 
+                                      <span className="action-finish" onClick={this.toggleText.bind(this)}>完成</span> 
+                                    </div> 
+                                  </div>  
+                                </div>  
+                              </div> 
+                              <div className="discount-detail"> 
+                                <div className="discount-item"> 
+                                  <span>满减</span> 
+                                  <div className="promo-rule"> 
+                                    <span>珀莱雅部分满199减100不封顶</span> 
+                                  </div> 
+                                </div>
+                                <div className="discount-item"> 
+                                  <span>满赠</span> 
+                                  <div className="promo-rule"> 
+                                    <span>珀莱雅满199送199</span> 
+                                  </div> 
+                                </div> 
+                                <div className="show-more"> 
+                                </div> 
+                              </div>  
                             </div> 
                           </div>
-                          <div className="discount-item"> 
-                            <span>满赠</span> 
-                            <div className="promo-rule"> 
-                              <span>珀莱雅满199送199</span> 
-                            </div> 
-                          </div> 
-                          <div className="show-more"> 
-                          </div> 
-                        </div>  
-                      </div> 
-                    </div>
-                  </li>
+                        </li>
+                      )
+                    })
+                  }
+                  
                 </ul>
               </div>
             </div>
-          </div>
-          <div className="submit-bottom submit-bottom-padding"> 
+            <div className="submit-bottom submit-bottom-padding"> 
             <div className="sub-info"> 
               {/* <span className="jq-check-box-checked">√</span>  */}
               <input type="checkbox" className="jq-check-box-checked" onChange={this.checkAll.bind(this)} checked={this.state.isChecked === true} />
@@ -113,9 +199,13 @@ class Cart extends React.Component {
               <span>(1)</span> 
             </div> 
           </div>
+          </div>
+          
         </div>
 
       </div>
+      <Footer />
+    </>
     )
    
   }

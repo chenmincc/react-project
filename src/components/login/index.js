@@ -35,6 +35,7 @@ const Login = class login extends React.Component {
     }).then(res => {
       console.log(res)
         if(res.data.code === 0){
+        document.cookie = "userName ="+this.state.userName;
          this.props.history.push("../total/shouye/index.js")
         }
       }

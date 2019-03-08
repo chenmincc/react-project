@@ -19,7 +19,7 @@ class Me extends Component {
           <div className="operation">
             <NavLink className="signup" to="/register">注册</NavLink>
             <div className="separator"></div>
-            <a className="login" href="@">登录</a>
+            <NavLink className="login" to="/login">登录</NavLink>
           </div>
         </div>
         <div className="order block">
