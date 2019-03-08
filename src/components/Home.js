@@ -14,8 +14,13 @@ class Home extends React.Component {
           <Route path="/cart" component={Cart}></Route>
           <Route path="/me" component={Me}></Route>
           <Route path="/home" component={Shouye} ></Route>
+<<<<<<< HEAD
           <Redirect from="/" to="/home/center/today"></Redirect>
           <Route path="/" component={Shouye}></Route>
+=======
+          <Redirect from='/' to="/home/center/today"></Redirect>
+          {/* <Route path="/" component={Shouye} ></Route> */}
+>>>>>>> min
 
         </Switch>
         </div>

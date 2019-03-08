@@ -1,6 +1,27 @@
 import React, { Component } from 'react';
-
+import axios from 'axios'
+import { Link } from 'react-router-dom';
 const content = class Content extends Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      list: []
+    }
+
+  }
+
+  componentDidMount () {
+    axios.get('/json/global.json').then(response => {
+      let res = response.data;
+      // console.log(res)
+      this.setState({
+        list: res
+      })
+    }).catch(error => {
+      console.log(error)
+    })
+  }
+
   render() {
     return (
       <>
@@ -11,29 +32,36 @@ const content = class Content extends Component {
           <span>今日团购，每天10点上新</span>
         </div>
         <ul className='touch-activity-detail clear'>
-          <li>
-            <a href='/'>
-              <div className="product-info clear">
-                <div className="product-img fl">
-                  <img className="product-label haitaoy-label lazy-load" src="http://p0.jmstatic.com/banner/area/000/000/029.jpg" alt='' />
-                    <img className="lazy-load deal-img" src="http://mp6.jmstatic.com/product/001/308/1308285_std/1308285_1000_1000.jpg?v=1540885690&amp;imageView2/2/w/264/q/90"  alt='' />
-                </div>
-                <div className='fl product-desc'>
-                  <div className="product-name">
-                    贝德玛深层舒妍卸妆水500ml，卸妆+护肤一起搞定！
-                  </div>
-                  <div className="price-info">
-                    <span className="exceed-hidden activity-jumei-price">
-                      <span className="price">￥<span>89.9</span></span>
-                      <span className="old">￥228</span>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </li>
+          {
+             this.state.list.map((item, index) => {
+                return (
+                  <li>
+                    <Link to={'/detail/'+item['item-id']} key={index}>
+                      <div className="product-info clear">
+                        <div className="product-img fl">
+                          <img className="product-label haitaoy-label lazy-load" src="http://p0.jmstatic.com/banner/area/000/000/029.jpg" alt='' />
+                            <img className="lazy-load deal-img" src={item.imgUrl}  alt='' />
+                        </div>
+                        <div className='fl product-desc'>
+                          <div className="product-name">
+                              {item.name}
+                          </div>
+                          <div className="price-info">
+                            <span className="exceed-hidden activity-jumei-price">
+                              <span className="price">￥<span>{item.price}</span></span>
+                              <span className="old">￥{item.oldPrice}</span>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </Link>
+                  </li>
+                )
+             })
+          }
 
-          <li>
+
+          {/* <li>
             <a href='/'>
               <div className="product-info clear">
                 <div className="product-img fl">
@@ -53,7 +81,7 @@ const content = class Content extends Component {
                 </div>
               </div>
             </a>
-          </li>
+          </li> */}
         </ul>
       </>
           )
