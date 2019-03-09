@@ -3,7 +3,6 @@ import Cart from '@/components/total/cart/index.js';
 import Me from '@/components/me/index.js';
 import Pintuan from '@/components/total/pintuan/index.js';
 import Shouye from '@/components/total/shouye/index.js';
-import Footer from '@/components/total/index.js';
 import { Route, Redirect, Switch} from 'react-router-dom';
 class Home extends React.Component {
   render () {

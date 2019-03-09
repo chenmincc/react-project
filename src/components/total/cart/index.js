@@ -10,69 +10,173 @@ class Cart extends React.Component {
       isChecked: false,
       goods:[],
       totalGoods:[],
-      cartGoods:['1'],
-      goodsNum:[]
+      cartGoods:[],
+      totalPrice:'',
+      totalNum:'',
+      localGoods:[]
     }
   }
   // 多选框
-  checkAll () {
+  checkAll (e) {
     this.setState({
       isChecked: !this.state.isChecked
     })
+    var _this = this;
+    setTimeout(function(){
+      // console.log(_this.state.isChecked)
+      if(_this.state.isChecked){
+        let Goods =_this.state.cartGoods.map(item => {
+            return item.shortName
+        })
+        var s = 0;
+        var p=0;
+        for (var i =0;i< _this.state.cartGoods.length;i++){
+          s += _this.state.cartGoods[i].num;
+          p += Number(_this.state.cartGoods[i].jumei_price);
+        }
+        _this.setState({
+          totalNum: s,
+          totalPrice: p
+        })
+        _this.setState({
+          goods: Goods,
+        })
+      }else{
+        _this.setState({
+          goods:[],
+          totalNum:'',
+          totalPrice:''
+        })
+            
+      }
+    },100)
+    
+    
+    
   }
-  checkOne (e) {
+  checkOne (bid,e) {
     let goods = this.state.goods;
     let index = this.state.goods.indexOf(e.target.value);
+    var curProduct = this.state.cartGoods.find(item => {
+      return bid === item['item-id']
+    })
     if(index > -1){
       goods.splice(index,1);
+      this.setState({
+        totalNum: Number(this.state.totalNum) - curProduct.num,
+        totalPrice: Number(this.state.totalPrice) - curProduct.jumei_price * curProduct.num
+      })
     }else{
       goods.push(e.target.value)
+      if(curProduct) {
+        this.setState({
+          totalNum: Number(this.state.totalNum) + curProduct.num,
+          totalPrice: Number(this.state.totalPrice) + curProduct.jumei_price * curProduct.num
+        })
+        // console.log(curProduct['jumei-price'])
+      }else{
+        alert('网络异常，请稍后重试')
+      }
     }
     this.setState({
       goods: goods
     })
+   
+    // console.log(this.state.cartGoods[index]);
+    // this.setState({
+    //   totalPrice:this.state.cartGoods[index].num * this.state.cartGoods['jumei-price']
+    // })
+    // console.log(this.state.totalPrice)
   }
-
+  
   //编辑页面和展示页面的切换
-  toggleText () {
+  toggleText (bid) {   
     this.setState({
       defaultDisplay: !this.state.defaultDisplay
     })
   }
-
+  //加1
+  addNum (bid) {
+    var curProduct = this.state.cartGoods.find(item => {
+      return bid === item['item-id']
+    })
+    if(curProduct){
+      curProduct.num ++;
+      curProduct.total = curProduct['jumei-price'] * curProduct.num;
+    }else{
+      alert(1)
+    }
+   
+    this.setState({
+      cartGoods: this.state.cartGoods,
+    })
+  }
+  //减1
+  jianNum (bid) {
+    var curProduct = this.state.cartGoods.find(item => {
+      return bid === item['item-id']
+    })
+    var index = this.state.cartGoods.indexOf(curProduct);
+    if(curProduct){
+      if(curProduct.num > 1){
+        curProduct.num --;
+        curProduct.total = curProduct.price * curProduct.num;
+      }else{
+        this.state.cartGoods.splice(index,1);
+      }
+    }
+    this.setState({
+      cartGoods: this.state.cartGoods
+    })
+  }
   // 删除商品
-  deleteGoods () {
-    console.log(this.state.cartGoods)
+  deleteGoods (bid) {
+    var curProduct = this.state.cartGoods.find(item => {
+      return bid === item['item-id']
+    })
+    var index = this.state.cartGoods.indexOf(curProduct);
+    this.state.cartGoods.splice(index,1);
+    this.setState({
+      cartGoods: this.state.cartGoods
+    })
   }
 
   ///计算选中商品的条数
-  computeGoodsNum () {
-    let num = 0;
+  computeGoodsNum (bid) {
+    var curProduct = this.state.cartGoods.find(item => {
+      return bid === item['item-id']
+    })
+    this.setState({
+      totalNum: curProduct.num
+    })
   }
   componentDidMount() {
-    
     axios.get('/json/index.json').then(res=>{
       this.setState({
-        totalGoods:res.data
+        totalGoods:res.data    
       })
-      console.log(this.state.totalGoods);
-    }).catch(error=>{
-      console.log(error);
-    })
-    if(this.state.totalGoods.length !== 0){
-      let goodsStore = JSON.parse(localStorage.getItem("goods"));
-      // console.log(goodsStore);
-      for(var i = 0;i < this.state.totalGoods.length;i++){
-        for(var j =0;j < goodsStore.length;j++){
-          if(this.state.totalGoods[i]['item-id'] == goodsStore[j].bid){
-            this.setState({
-              cartGoods: this.state.totalGoods[i],
-              goodsNum: goodsStore[j].num
-            })
+      if(this.state.totalGoods.length > 0){
+        let goodsStore = JSON.parse(localStorage.getItem("goods"));
+        this.setState({
+          localGoods:goodsStore
+        })
+        console.log(this.state.localGoods)
+        for(var i = 0;i < this.state.totalGoods.length;i++){
+          for(var j =0;j < this.state.localGoods.length;j++){
+            if(this.state.totalGoods[i]['item-id'] === goodsStore[j].bid){
+              this.state.totalGoods[i].num =goodsStore[j].num
+              this.state.cartGoods.push(this.state.totalGoods[i]);
+              // this.state.goodsStore.push(goodsStore[j]);
+              this.setState({
+                cartGoods: this.state.cartGoods
+              })
+            }
           }
         }
       }
-    }
+    }).catch(error=>{
+      console.log(error);
+    })
   }
   render () {
     const okStyle = {
@@ -109,17 +213,17 @@ class Cart extends React.Component {
               <div className="jq-group">
                 <div className="jq-group-header"> 
                   {/* <span className="jq-check-box-checked">√</span>  */}
-                  <input type="checkbox" className="jq-check-box-checked" onChange={this.checkAll.bind(this)} checked={this.state.isChecked === true} />
+                  <input type="checkbox" className="jq-check-box-checked" value={this.state.isChecked} onChange={this.checkAll.bind(this)} checked={this.state.isChecked === true} />
                   <div className="jq-group-title" value="this.state."> 聚美优品发货 </div>   
                 </div>
                 <ul className="jq-group-content">
                   {
-                    this.state.totalGoods.map(item => {
+                    this.state.cartGoods.map(item => {
                       return (
                         <li key={item['item-id']}>
                           <div className="item"> 
                             {/* <span className="jq-check-box-checked">√</span>  */}
-                            <input type="checkbox" className="jq-check-box-checked" value="1" onChange={this.checkOne.bind(this)} checked={this.state.goods.indexOf('1') > -1} />
+                            <input type="checkbox" className="jq-check-box-checked" value={item.shortName} onChange={this.checkOne.bind(this,item['item-id'])} checked={this.state.goods.indexOf(item.shortName) > -1} />
                             <div className="item-content"> 
                               <div className="img-title"> 
                                 <div className="img-wrap"> 
@@ -133,7 +237,7 @@ class Cart extends React.Component {
                                   </div> 
                                   <div className="price-edit"> 
                                     <span className="price"> ￥{item.jumei_price} </span>  
-                                    <span className="edit" onClick={this.toggleText.bind(this)}>编辑</span> 
+                                    <span className="edit" onClick={this.toggleText.bind(this,item['item-id'])}>编辑</span> 
                                   </div>
                                 </div>
                                 <div className="text-wrap" id="xiangxi" style={okStyle}> 
@@ -142,14 +246,14 @@ class Cart extends React.Component {
                                     {item.shortName}
                                   </span>
                                   <div className="number-editor"> 
-                                    <span className="decrease">+</span> 
-                                    <span className="goodsNum">1</span> 
-                                    <span className="increase">-</span> 
+                                    <span className="decrease" onClick={this.addNum.bind(this,item['item-id'] )}>+</span> 
+                                    <span className="goodsNum">{item.num}</span> 
+                                    <span className="increase" onClick={this.jianNum.bind(this,item['item-id'] )}>-</span> 
                                   </div>
                                   <div className="price-edit"> 
-                                    <span className="price editing"> ¥219 </span>  
+                                    <span className="price editing"> ¥{item.jumei_price} </span>  
                                     <div className="actions"> 
-                                      <span className="delete" onClick={this.deleteGoods.bind(this)}>删除</span> 
+                                      <span className="delete" onClick={this.deleteGoods.bind(this,item['item-id'])}>删除</span> 
                                       <span className="gap-line"></span> 
                                       <span className="action-finish" onClick={this.toggleText.bind(this)}>完成</span> 
                                     </div> 
@@ -190,13 +294,13 @@ class Cart extends React.Component {
               <div className="summary"> 
                 <div> 
                   <span>合计</span> 
-                  <span className="red">¥199</span> 
+                  <span className="red">¥{this.state.totalPrice}</span> 
                 </div>  
               </div> 
             </div> 
             <div className="submit-btn go-to-submit"> 
               去结算
-              <span>(1)</span> 
+              <span>({this.state.totalNum})</span> 
             </div> 
           </div>
           </div>

@@ -17,10 +17,10 @@ class Particular extends React.Component {
     }
   }
 
-  getValStor () {
-    let ArrVal = [];
-    var objVal = localStorage.setItem()
-  }
+  // getValStor () {
+  //   let ArrVal = [];
+  //   var objVal = localStorage.setItem()
+  // }
 
   // addCart () {
   //   var i = this.state.itemId

@@ -21,10 +21,10 @@ class Footer extends React.Component {
     }
   }
 
-  getValStor () {
-    let ArrVal = [];
-    var objVal = localStorage.setItem()
-  }
+  // getValStor () {
+  //   let ArrVal = [];
+  //   var objVal = localStorage.setItem()
+  // }
 
   addCart () {
     var i = this.state.itemId
@@ -44,7 +44,7 @@ class Footer extends React.Component {
 
 					var flag = false;
 					for (var i = 0; i < storGoodsJson.length; i++) {
-						if(storGoodsJson[i].bid == bid){
+						if(storGoodsJson[i].bid === bid){
 							storGoodsJson[i].num++;
 							flag = true;
 							break;
