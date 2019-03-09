@@ -9,7 +9,9 @@ class Me extends Component {
     }
   }
   componentDidMount () {
-    let userName = document.cookie.split(';').join('').split('=')[1];
+    
+    let userName = document.cookie.split('userName=');
+    console.log(userName)
     this.setState({
       userNames:userName
     })
@@ -17,10 +19,10 @@ class Me extends Component {
  
   render () {
     const defaultStyle = {
-      display: document.cookie === '' ? 'block' : 'none'
+      display: document.cookie.indexOf('userName') > -1 ? 'none' : 'block'
     }
     const userStyle = {
-      display: document.cookie === '' ? 'none' : 'block'
+      display: document.cookie.indexOf('userName') > -1 ? 'block' : 'none'
     }
     return (
       <div className="jq-me">
@@ -41,25 +43,25 @@ class Me extends Component {
             <NavLink className="login" to="/login">登录</NavLink>
           </div>
         </div>
-        <div class="user" style={userStyle}>
-          <img src="http://f0.jmstatic.com/static_account/dist/20160913/images/user_avatar/2/200_200.png?1552103164" alt="" class="photo" />
-          <div class="user_bg">
-            <div class="user_info">
-                <span class="name">{this.state.userNames}</span>
-                <span class="grade">普通会员</span>
+        <div className="user" style={userStyle}>
+          <img src="http://f0.jmstatic.com/static_account/dist/20160913/images/user_avatar/2/200_200.png?1552103164" alt="" className="photo" />
+          <div className="user_bg">
+            <div className="user_info">
+                <span className="name">{this.state.userNames}</span>
+                <span className="grade">普通会员</span>
             </div>
           </div>
-          <div class="icons">
-            <a class="wishlist" href="/h/wishdeal/onsale">
-              <i class="iconfont icon-xin"></i>
+          <div className="icons">
+            <a className="wishlist" href="/h/wishdeal/onsale">
+              <i className="iconfont icon-xin"></i>
               <span>心愿单</span>
             </a>
-            <a class="onsale" href="/m/subscribe/list">
-              <i class="iconfont icon-biao"></i>
+            <a className="onsale" href="/m/subscribe/list">
+              <i className="iconfont icon-biao"></i>
               <span>开售提醒</span>
             </a>
-            <a class="fav" href="/m/favoritebrand/list">
-              <i class="iconfont icon-xing"></i>
+            <a className="fav" href="/m/favoritebrand/list">
+              <i className="iconfont icon-xing"></i>
               <span>收藏</span>
             </a>
           </div>
