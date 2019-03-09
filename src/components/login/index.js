@@ -1,9 +1,7 @@
 import React from 'react';
 import '@/components/register/index.less';
-// import NavLink from 'react-router-dom/NavLink';
-// import history from 'history';
+import {NavLink} from 'react-router-dom';
 import axios from 'axios'
-// import {createBrowserHistory, createHashHistory, createMemoryHistory} from 'history'
 const Login = class login extends React.Component {
   constructor (props) {
     super(props);
@@ -51,8 +49,8 @@ const Login = class login extends React.Component {
           <a id="back" href="javascript:void(0);">
             <img src="https://f0.jmstatic.com/static_passport/dist/v1.0.28403/touch/login_series/images/NavButtonBack_new.png" className="return" alt="" />
           </a>
-          <a className="theme" href="/login">登录</a>
-          <a className="top_right" href="/register">注册</a>
+          <NavLink className="theme" to="/login">登录</NavLink>
+          <NavLink className="top_right" to="/register">注册</NavLink>
         </section>
         <form id="login-dynamic-form">
           <div id="iphone_login">

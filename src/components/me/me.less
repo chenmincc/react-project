@@ -56,6 +56,7 @@
   height: 158px;
   background-image: linear-gradient(-204deg,#fd465f 0,#fc5e9f 100%);
   padding-top: 50px;
+  display: none;
   .noportrait {
     background-image: url(../../image/noportrait.png);
     width: 60px;
@@ -86,6 +87,72 @@
       vertical-align: middle;
       margin-top: 4px;
     }
+  }
+}
+.user {
+  position: relative;
+  width: 100%;
+  height: 158px;
+  background-image: linear-gradient(-204deg,#fd465f 0,#fc5e9f 100%);
+  .photo {
+    width: 84px;
+    height: 84px;
+    display: block;
+    border-radius: 50%;
+    position: absolute;
+    left: 32px;
+    top: 35px;
+    z-index: 10;
+  }
+  .user_bg {
+    position: absolute;
+    width: 100%;
+    height: 106px;
+    .user_info {
+      display: flex;
+      flex-direction: column;
+      font-size: 18px;
+      color: #fff;
+      position: absolute;
+      left: 130px;
+      bottom: 4px;
+      .name {
+        font-family: sans-serif;
+        line-height: 20px;
+        margin-bottom: 5px;
+      }
+      .grade {
+        background: rgba(255,255,255,.2);
+        border-radius: 100px;
+        letter-spacing: .65px;
+        line-height: 18px;
+        padding: 3px 5px;
+        margin-top: 10px;
+      }
+    }
+  }
+  .icons {
+    width: 262px;
+    height: 50px;
+    position: absolute;
+    bottom: 2px;
+    right: -6px;
+    font-size: 12px;
+    text-align: center;
+    .wishlist,.fav,.onsale{
+      display: flex;
+      flex-direction: column;
+      width: 76px;
+      height: 50px;
+      float: left;
+      color: #fff;
+      .iconfont {
+        width: 18px;
+        height: 18px;
+        font-size: 18px;
+        margin: 7px auto;
+      }
+   } 
   }
 }
 .block {

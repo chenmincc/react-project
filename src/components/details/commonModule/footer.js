@@ -84,13 +84,13 @@ class Footer extends React.Component {
   render () {
     return (
       <div className="footer_box">
-        <div className="gwc_left">
+        <NavLink to="/cart" className="gwc_left">
           <div className="boxFlex">
             <i className="iconfont icon-gouwu" id="shopping-cart"></i>
             <span className="cart-num">{this.state.totalNum}</span>
-            <NavLink to="/cart" className="textCart">购物车</NavLink>
+            <span  className="textCart">购物车</span>
           </div>
-        </div>
+        </NavLink >
         <div className="gm_right">
           <span  className="jr_gwc" onClick={this.addCart.bind(this)}>加入购物车</span>
           <a href="@" className="lj_gm">立即购买</a>

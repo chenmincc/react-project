@@ -2,7 +2,26 @@ import React,{Component} from 'react';
 import './me.less';
 import { NavLink} from 'react-router-dom';
 class Me extends Component {
+  constructor (props) {
+    super(props);
+    this.state = {
+      userNames: ''
+    }
+  }
+  componentDidMount () {
+    let userName = document.cookie.split(';').join('').split('=')[1];
+    this.setState({
+      userNames:userName
+    })
+  }
+ 
   render () {
+    const defaultStyle = {
+      display: document.cookie === '' ? 'block' : 'none'
+    }
+    const userStyle = {
+      display: document.cookie === '' ? 'none' : 'block'
+    }
     return (
       <div className="jq-me">
         <header className="head-wrap">
@@ -14,12 +33,35 @@ class Me extends Component {
             <i className="iconfont icon-fangzi"></i>
           </div>
         </header>
-        <div className="user-unlogin">
+        <div className="user-unlogin" style={defaultStyle}>
           <div className="noportrait"></div>
           <div className="operation">
             <NavLink className="signup" to="/register">注册</NavLink>
             <div className="separator"></div>
             <NavLink className="login" to="/login">登录</NavLink>
+          </div>
+        </div>
+        <div class="user" style={userStyle}>
+          <img src="http://f0.jmstatic.com/static_account/dist/20160913/images/user_avatar/2/200_200.png?1552103164" alt="" class="photo" />
+          <div class="user_bg">
+            <div class="user_info">
+                <span class="name">{this.state.userNames}</span>
+                <span class="grade">普通会员</span>
+            </div>
+          </div>
+          <div class="icons">
+            <a class="wishlist" href="/h/wishdeal/onsale">
+              <i class="iconfont icon-xin"></i>
+              <span>心愿单</span>
+            </a>
+            <a class="onsale" href="/m/subscribe/list">
+              <i class="iconfont icon-biao"></i>
+              <span>开售提醒</span>
+            </a>
+            <a class="fav" href="/m/favoritebrand/list">
+              <i class="iconfont icon-xing"></i>
+              <span>收藏</span>
+            </a>
           </div>
         </div>
         <div className="order block">
@@ -90,11 +132,11 @@ class Me extends Component {
             <span>收货地址</span>
             <i className="iconfont icon-youjiantou-copy"></i>
           </a>
-          <a className="list-item logout" href="https://passport.jumei.com/i/mobile/logout?redirect=http%3A%2F%2Fi.jumei.com%2Fm%2Faccount%2Fmy">
+          <NavLink className="list-item logout" to="/login">
             <i className="iconfont icon-tuichu"></i>
             <span>退出登录</span>
             <i className="iconfont icon-youjiantou-copy"></i>
-          </a>
+          </NavLink>
           <a className="list-item" href="tel: 400-123-8888">
             <i className="iconfont icon-dianhua"></i>
             <span>400-123-8888</span>
